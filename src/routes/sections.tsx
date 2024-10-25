@@ -7,6 +7,7 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import { varAlpha } from 'src/theme/styles';
 import { AuthLayout } from 'src/layouts/auth';
 import { DashboardLayout } from 'src/layouts/dashboard';
+import { TaskLayout } from '../layouts/task';
 
 // ----------------------------------------------------------------------
 
@@ -16,6 +17,8 @@ export const UserPage = lazy(() => import('src/pages/user'));
 export const SignInPage = lazy(() => import('src/pages/sign-in'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
+export const TestPage = lazy(() => import('src/pages/test'));
+export const TaskPage = lazy(() => import('src/pages/task'));
 
 // ----------------------------------------------------------------------
 
@@ -47,7 +50,17 @@ export function Router() {
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
+        { path: 'test', element: <TestPage /> },
       ],
+    },
+
+    {
+      path: 'task',
+      element: (
+        <TaskLayout>
+          <TaskPage />
+        </TaskLayout>
+      ),
     },
     {
       path: 'sign-in',

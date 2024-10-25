@@ -4,10 +4,12 @@ import { useId, forwardRef } from 'react';
 
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 import { RouterLink } from 'src/routes/components';
 
 import { logoClasses } from './classes';
+
 
 // ----------------------------------------------------------------------
 
@@ -197,22 +199,39 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
 
     return (
       <Box
-        ref={ref}
-        component={RouterLink}
-        href={href}
         className={logoClasses.root.concat(className ? ` ${className}` : '')}
-        aria-label="Logo"
         sx={{
-          ...baseSize,
-          flexShrink: 0,
-          display: 'inline-flex',
-          verticalAlign: 'middle',
-          ...(disableLink && { pointerEvents: 'none' }),
+          display: 'flex',
+          alignItems: 'center',
           ...sx,
         }}
         {...other}
       >
-        {isSingle ? singleLogo : fullLogo}
+        <Box
+          ref={ref}
+          component={RouterLink}
+          href={href}
+          aria-label="Logo"
+          sx={{
+            ...baseSize,
+            flexShrink: 0,
+            display: 'inline-flex',
+            verticalAlign: 'middle',
+            ...(disableLink && { pointerEvents: 'none' }),
+          }}
+        >
+          {isSingle ? singleLogo : fullLogo}
+        </Box>
+        <Typography
+          variant="body1"
+          sx={{
+            marginLeft: 2,
+            fontSize: '1.2rem', // 增大字体大小
+            fontWeight: 'bold', // 加粗字体
+          }}
+        >
+          {isSingle ? 'SparksSoft-Project' : 'SparksSoft'}
+        </Typography>
       </Box>
     );
   }

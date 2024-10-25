@@ -34,13 +34,28 @@ export const navData = [
     icon: icon('ic-blog'),
   },
   {
-    title: 'Sign in',
-    path: '/sign-in',
-    icon: icon('ic-lock'),
+    title: 'test',
+    path: '/test',
+    icon: icon('ic-user'),
   },
   {
-    title: 'Not found',
-    path: '/404',
-    icon: icon('ic-disabled'),
+    title: 'task',
+    path: '/task',
+    icon: icon('ic-user'),
+    info: (
+      <Label color="error" variant="inverted">
+        99+
+      </Label>
+    ),
   },
+  // {
+  //   title: 'Sign in',
+  //   path: '/sign-in',
+  //   icon: icon('ic-lock'),
+  // },
+  // {
+  //   title: 'Not found',
+  //   path: '/404',
+  //   icon: icon('ic-disabled'),
+  // },
 ];
